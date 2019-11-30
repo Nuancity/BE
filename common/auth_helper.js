@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+// const blockstack = require( 'blockstack' );
 
 module.exports = {
 

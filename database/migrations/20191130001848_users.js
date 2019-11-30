@@ -6,6 +6,7 @@ exports.up = function( knex, Promise ) {
         table.string( 'username', 255 ).notNullable().unique();
         table.string( 'name', 255 ).notNullable().unique();
         table.string( 'email', 255 ).notNullable().unique();
+        table.string( 'avatar_url', 255 );
     });
 };
 

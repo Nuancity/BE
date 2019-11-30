@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', ( req, res ) => {
     users.getAll()
-    .then( users => {s
+    .then( users => {
         res.status( 200 ).json( users )
     })
     .catch( () => {
