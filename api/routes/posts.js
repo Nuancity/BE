@@ -1,19 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const authHelper = require('../../common/auth_helper.js');
-const posts = require('../../database/models/posts-model.js')
+const posts = require('../../database/models/posts_model.js');
 
-router.get('/', async (req, res) => {
-    const allPosts = await posts.getAll();
-    try {
-        res.status( 200 ).json({ allPosts } );
-
-    } catch {
-        res.status( 500 ).json( err )
-    }
+router.get('/', ( req, res ) => {
+   posts.getAll()
+   .then( posts => {
+       res.status( 200 ).json( posts )
+   })
+   .catch( () => {
+       res.status( 500 ).json({ error: 'could not retrieve posts.' }) 
+   })
 });
 
-// returns post and categories associated with post
 router.get('/:id', async (req, res) => {
     const { id } = req.params || req.body
     try {
@@ -29,11 +28,7 @@ router.get('/:id', async (req, res) => {
     }
  });
 
- /* ========== POST =========== */
-
- // returns created post and all posts 
-
-router.post('/', authHelper.protected, async ( req, res ) => {
+router.post('/', async ( req, res ) => {
     let { id, ...newPost } = req.body
     console.log( req.body );
 
@@ -50,8 +45,6 @@ router.post('/', authHelper.protected, async ( req, res ) => {
         res.status(500).json(err)
     }
 });
-
-/* ========== PUT =========== */
 
 router.put('/:id', authHelper.protected, async (req, res) => {
     const { id } = req.params
@@ -77,8 +70,6 @@ router.put('/:id', authHelper.protected, async (req, res) => {
        res.status(500).json({ err, error: 'unable to update the post' });
     }
  });
-
-/* ========== DELETE =========== */
 
 router.delete('/:id', authHelper.protected, async (req, res) => {
     const { id } = req.params;
