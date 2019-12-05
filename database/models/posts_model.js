@@ -1,7 +1,7 @@
 const db = require('../db_config.js');
 
-async function insert(post) {
-  await db( 'posts' ).insert(post)
+async function insert( post ) {
+  await db( 'posts' ).insert( post )
   return db( 'posts' );
 };
 
