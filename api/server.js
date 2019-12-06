@@ -20,10 +20,11 @@ server.get( '/api', ( req, res ) => {
 const users = require('./routes/users.js');
 const auth = require('./routes/auth.js');
 const posts = require('./routes/posts.js');
+const comments = require('./routes/comments.js');
+const notifs = require('./routes/notifs.js');
 // const categories = require('./routes/categories_router.js');
 // const posts_categories = require('./routes/posts_categories_router.js');
 // const resources = require('./routes/resources.js');
-const notifs = require('./routes/notifs.js');
 // const comments = require('./routes/comments.js');
 
 
@@ -33,6 +34,7 @@ server.use( '/api/users', users );
 server.use( '/api/auth', auth );
 server.use( '/api/posts', posts );
 server.use( '/api/notifs', notifs );
+server.use( '/api/comments', comments );
 // server.use( '/api/categories', categories );
 // server.use( '/api/cp', posts_categories );
 
