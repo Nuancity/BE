@@ -1,4 +1,4 @@
-const createCategories = ( amount = 6 ) => {
+const createCategories = ( amount = 7 ) => {
     let mockTopics = [ 
         'Economics', 
         'Politics', 
@@ -8,7 +8,7 @@ const createCategories = ( amount = 6 ) => {
         'Psychology' 
     ];
     let topics = [];
-    while ( amount > 0 ) {
+    while ( amount > 1 ) {
         let topic = {
             name: mockTopics[ amount ]
         };
