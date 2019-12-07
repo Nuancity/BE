@@ -17,11 +17,11 @@ server.get( '/api', ( req, res ) => {
 
 // ======================
 
-const users = require('./routes/users.js');
 const auth = require('./routes/auth.js');
 const posts = require('./routes/posts.js');
-const comments = require('./routes/comments.js');
+const users = require('./routes/users.js');
 const notifs = require('./routes/notifs.js');
+const comments = require('./routes/comments.js');
 // const categories = require('./routes/categories_router.js');
 // const posts_categories = require('./routes/posts_categories_router.js');
 // const resources = require('./routes/resources.js');

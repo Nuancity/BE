@@ -1,7 +1,7 @@
 const express = require( 'express' );
 const router = express.Router();
-const comments = require( '../../database/models/comments_model ');
-const db = require( '../../database/db_config ');
+const comments = require( '../../database/models/comments_model');
+const db = require( '../../database/db_config');
 
 router.get( '/', ( req, res ) => {
     comments.getAll()
