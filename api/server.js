@@ -1,15 +1,7 @@
 const express = require( 'express' );
+const middelware = require( '../config/middleware.js' );
 const server = express();
-const helmet = require( 'helmet' );
-const cors = require( 'cors' );
-
-server.use( express.json() );
-server.use( helmet() );
-server.use( cors() );
-server.use( '*', cors({
-    origin: [ 'http://localhost:3000' ],
-   credentials: true,
-}));
+middelware( server );
 
 server.get( '/api', ( req, res ) => {
     res.status( 200 ).json( { message: "API Running!" } );
@@ -23,7 +15,7 @@ const users = require('./routes/users.js');
 const notifs = require('./routes/notifs.js');
 const comments = require('./routes/comments.js');
 const categories = require('./routes/categories.js');
-// const resources = require('./routes/resources.js');
+const upload = require('./routes/upload.js');
 
 // const actions = require('./routes/resources.js');
 // const posts_categories = require('./routes/posts_categories_router.js');
@@ -37,6 +29,7 @@ server.use( '/api/posts', posts );
 server.use( '/api/notifs', notifs );
 server.use( '/api/comments', comments );
 server.use( '/api/categories', categories );
+server.use( '/api/upload', upload );
 // server.use( '/api/cp', posts_categories );
 
 // =====================
