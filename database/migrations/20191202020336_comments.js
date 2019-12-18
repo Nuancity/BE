@@ -5,7 +5,7 @@ exports.up = function( knex, Promise ) {
         table.integer( 'reply_count' );
         table.integer( 'reaction_count' );
         table.integer( 'post_id' ).notNullable();
-        table.string( 'content' ).notNullable();
+        table.string( 'content', 3000 ).notNullable();
         table.integer( 'creator_id' ).notNullable();
     });
 };

@@ -6,7 +6,7 @@ exports.up = function( knex, Promise ) {
         table.integer( 'subject_id' ).notNullable(); // id of object/post that sender engaged with
         table.integer( 'sender_id' ).notNullable(); // id of user who generated motification
         table.integer( 'reciever_id' ).notNullable(); // id of user who recieves notification
-        table.string( 'new_content_id' ); // id to new comment or share or etc
+        table.integer( 'new_content_id' ); // id to new comment or share or etc
     });
 };
 
