@@ -10,6 +10,6 @@ module.exports = server => {
    server.use( express.json() );
    server.use( cors() );
    server.use( '*', cors( {
-    origin: [ 'http://localhost:3000', 'https://nuancity.herokuapp.com/api' ],
+    origin: [ 'http://localhost:3000', 'https://nuancity.herokuapp.com' ],
    credentials: true, } ) );
 };
